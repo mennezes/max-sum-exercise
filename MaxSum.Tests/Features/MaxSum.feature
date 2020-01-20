@@ -30,3 +30,7 @@ Scenario: Finding the sum of a null array
 Scenario: Find the sum of an array with a negative number
 	Given the numbers in the array are 1,-2,4
 	Then an ArgumentException should be thrown
+
+Scenario: Overflowing the sum
+	Given the numbers in the array are 2147483640,2147483640,2147483640,2147483640
+	Then an OverflowException should be thrown

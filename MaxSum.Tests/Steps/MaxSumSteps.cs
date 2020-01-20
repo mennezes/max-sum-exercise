@@ -76,6 +76,25 @@ namespace MaxSum.Tests.Steps
             Assert.IsTrue(thrown);
         }
 
+        [Then(@"an OverflowException should be thrown")]
+        public void ThenAnOverflowExceptionShouldBeThrown()
+        {
+            bool thrown = false;
+            try
+            {
+                _maxSum.FindSum(_values);
+            }
+            catch (OverflowException)
+            {
+                thrown = true;
+            }
+            catch
+            {
+                // Ignores
+            }
+
+            Assert.IsTrue(thrown);
+        }
 
         [StepArgumentTransformation]
         public int[] TransformToIntegerArray(string numbers)

@@ -17,8 +17,8 @@ namespace MaxSum
             if (arr.Length > Math.Pow(10, 9)) throw new ArgumentException("The array exceeds the maximum length of 10^9", "arr");
 
             // Uses two integers to store values when we take the number at I, or when we skip
-            int takeSum = arr[0];
-            int skipSum = 0;
+            long takeSum = arr[0];
+            long skipSum = 0;
 
             // Loops through the array and starts at 1 because the 0 index is our first take sum
             for (int i = 1; i < arr.Length; i++)
@@ -26,7 +26,7 @@ namespace MaxSum
                 if (arr[i] < 0) throw new ArgumentException($"The array must contain non-negative numbers only", "arr");
 
                 // The new Take sum will be the previous skip sum + the current number
-                int newTakeSum = skipSum + arr[i];
+                long newTakeSum = skipSum + arr[i];
 
                 // Check if taking the current number is better than skipping it
                 if (newTakeSum > takeSum)
@@ -43,8 +43,12 @@ namespace MaxSum
                 }
             }
 
+            // Final vali
+            long sum = takeSum > skipSum ? takeSum : skipSum;
+            if (sum > int.MaxValue) throw new OverflowException($"The sum of {sum} exceeds the int32 max value");
+
             // Return the bigger sum
-            return takeSum > skipSum ? takeSum : skipSum;
+            return (int)sum;
         }
     }
 }
