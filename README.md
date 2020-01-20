@@ -5,6 +5,8 @@ Example 1: [1,2,3,4] = 6
 # Implementation
 The implementation can be found on the project MaxSum, class MaxSum, method FindSum. The method signature is `public int FindSum(int[] arr)`
 Basic validation is executed on the begining of the algorithm, and validation about non-negative numbers, is executed during the execution.
+## Complexity
+The time complexity of the algorithm is **O(n)** and the space complexity is **O(n)**.
 
 # Tests
 The project MaxSum.Tests contains BDD tests with example data based on the requirements.
